@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# script prints Best School 10 times
+# script prints Best School 10 times using while loop
 n=0
 while [ $n -lt 10 ];
 do
