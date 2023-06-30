@@ -1,6 +1,11 @@
 #!/usr/bin/env bash
 # script prints Best School 10 times
-for i in {1..10}
+n=0
+for (( ; ; ));
 do
+if [ $n -eq 10 ];then
+  break
+fi
   echo "Best School"
+  ((n=n+1))
 done
