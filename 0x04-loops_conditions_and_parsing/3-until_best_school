@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # script prints Best School 10 times using while loop
 n=0
-while [ $n -lt 10 ];
+until [ $n == 10 ];
 do
   echo "Best School"
   ((n=n+1))
