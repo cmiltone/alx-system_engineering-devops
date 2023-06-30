@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
 # script prints content of current directory
 for d in *; do
- echo $d
+ echo "$d"
 done
