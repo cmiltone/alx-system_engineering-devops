@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+# script prints 'To infinity and beyond' indefinitely and prints I am invincible!!!
+# on SIGTERM
+n=true
+trap 'echo "I am invincible!!!"' 15
+while [ $n == true ];
+do
+  echo "To infinity and beyond"
+  sleep 2
+done
