@@ -1,4 +1,3 @@
 #!/usr/bin/env bash
-# script that prints its own pid
-echo "$PPID bash"
-echo "$$ bash"
+# script that prints bash pid and its own pid
+pgrep -l bash
