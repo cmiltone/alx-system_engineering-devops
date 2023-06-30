@@ -1,11 +1,12 @@
 #!/usr/bin/env bash
 # script prints Best School using while loop
-n=0
-while [ $n -lt 10 ];
+n=1
+while [ $n -lt 11 ];
 do
-if [ $n == 9 ];then
-  echo "Hi"
-  echo "Best School"
+if [ $n == 4 ];then
+  echo "bad luck"
+elif [ $n == 8 ]; then
+  echo "good luck"
 else
   echo "Best School"
 fi
