@@ -1,12 +1,11 @@
 #!/usr/bin/env bash
 # script configuress nginx on a server
 
-sudo apt-get install nginx
+sudo apt-get update
+sudo apt-get install -y nginx
 
-echo "server {
-    listen 80;
-    location / {
-        return 200 'Hello World!\n';
-    }
-}" > /etc/nginx/sites-available/default
+sudo mkdir /etc/nginx/html
+sudo touch /etc/nginx/html/index.html
+
+echo "Hello World!" > /etc/nginx/html/index.html
 nginx -s reload
