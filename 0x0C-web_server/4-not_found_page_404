@@ -16,7 +16,7 @@ printf %s "server {
      
      error_page 404 /custom_404.html;
      location = /custom_404.html {
-        return /etc/nginx/html;
+        root /etc/nginx/html;
         internal;
      }
 }
