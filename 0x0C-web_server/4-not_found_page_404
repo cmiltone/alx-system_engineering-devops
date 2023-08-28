@@ -14,8 +14,10 @@ printf %s "server {
      root        /etc/nginx/html;
      index       index.html index.htm;
      
-     location /redirect_me {
-        return 301 https://www.youtube.com/watch?v=QH2-TGUlwu4;
+     error_page 404 /custom_404
+     location = /custom_404 {
+        return 404 'Ceci n'est pas une page';
+        internal;
      }
 }
 " > /etc/nginx/sites-available/default
