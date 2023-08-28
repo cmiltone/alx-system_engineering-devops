@@ -15,4 +15,4 @@ printf %s "server {
      index       index.html index.htm;
 }
 " > /etc/nginx/sites-available/default
-nginx -s reload
+service nginx restart
