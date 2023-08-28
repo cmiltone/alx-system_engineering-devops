@@ -14,7 +14,7 @@ printf %s "server {
      root        /etc/nginx/html;
      index       index.html index.htm;
      
-     error_page 404 /custom_404
+     error_page 404 /custom_404;
      location = /custom_404 {
         return 404 'Ceci n'est pas une page';
         internal;
