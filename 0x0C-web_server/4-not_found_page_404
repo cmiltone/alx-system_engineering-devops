@@ -5,18 +5,18 @@ apt update
 apt install -y nginx
 
 mkdir /etc/nginx/html
-touch /etc/nginx/html/index.html
+touch /etc/nginx/html/custom_404.html
 
-echo "Hello World!" > /etc/nginx/html/index.html
+echo "Ceci n'est pas une page" > /etc/nginx/html/custom_404.html
 printf %s "server {
      listen      80 default_server;
      listen      [::]:80 default_server;
      root        /etc/nginx/html;
      index       index.html index.htm;
      
-     error_page 404 /custom_404;
-     location = /custom_404 {
-        return 404 'Ceci n'est pas une page';
+     error_page 404 /custom_404.html;
+     location = /custom_404.html {
+        return /etc/nginx/html;
         internal;
      }
 }
