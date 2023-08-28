@@ -1,0 +1,27 @@
+#!/usr/bin/env bash
+# script transfers file from client to server
+i=0;
+filepath=""
+ip=""
+username=""
+keypath=""
+for arg in "$@"
+do
+  if [ $i -eq 0 ]; then
+    filepath="$arg";
+  elif [ $i -eq 1 ]; then
+    ip="$arg";
+  elif [ $i -eq 2 ]; then
+    username="$arg";
+  elif [ $i -eq 3 ]; then
+    keypath="$arg";
+  fi
+  i=$((i + 1));
+done
+if [ $i -lt 4 ];
+then
+  echo "Usage: ";
+else
+  scp -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -q -i "$keypath" "$filepath" "$username@$ip:/home/$username"
+fi
+ 
