@@ -39,4 +39,4 @@ listen hbnb
     server 264256-web-02 100.25.190.190:80 check
 " >> /etc/haproxy/haproxy.cfg
 
-service haproxy start
+service haproxy restart
