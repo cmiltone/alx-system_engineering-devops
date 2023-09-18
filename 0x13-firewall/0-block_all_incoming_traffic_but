@@ -2,12 +2,12 @@
 # script blocks all incoming traffic, except
 # ports 22, 443, 80
 
-sudo ufw --dry-run default deny incoming
+sudo ufw default deny incoming
 
-sudo ufw --dry-run allow ssh
+sudo ufw allow ssh
 
-sudo ufw --dry-run allow http
+sudo ufw allow http
 
-sudo ufw --dry-run allow https
+sudo ufw allow https
 
-sudo ufw --dry-run enable
+sudo ufw enable
