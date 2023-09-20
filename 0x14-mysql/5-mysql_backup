@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+#script backs up db
+password=$1
+
+filename="$(date +%d-%m-%Y)".tar.gz
+
+mysqldump -uroot -p"$password" --all-databases > backup.sql
+
+tar -czvf "$filename" ./backup.sql
