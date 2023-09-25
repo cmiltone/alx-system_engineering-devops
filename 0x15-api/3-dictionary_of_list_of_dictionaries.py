@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 """
 script to export data in JSON format
+for all employees
 """
 
 
