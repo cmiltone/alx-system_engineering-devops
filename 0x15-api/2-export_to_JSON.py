@@ -16,7 +16,6 @@ if __name__ == "__main__":
     url = 'https://jsonplaceholder.typicode.com/users/{}/todos'.format(id)
     tasks = requests.get(url).json()
 
-    completed = []
     obj = {id: []}
     for task in tasks:
         obj[id].append({
