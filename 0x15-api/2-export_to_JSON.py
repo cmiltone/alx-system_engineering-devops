@@ -1,13 +1,13 @@
 #!/usr/bin/python3
 """
-script to exports data in CSV format
+script to export data in JSON format
 """
 
 
 if __name__ == "__main__":
     import requests
     import sys
-    import csv
+    import json
 
     id = sys.argv[1]
     url = 'https://jsonplaceholder.typicode.com/users/{}'.format(id)
@@ -17,20 +17,13 @@ if __name__ == "__main__":
     tasks = requests.get(url).json()
 
     completed = []
+    obj = {id: []}
     for task in tasks:
-        completed.append({
-            "id": id,
+        obj[id].append({
             "username": uname,
             "completed": task.get('completed'),
             "task": task.get('title')
         })
 
-    with open('{}.csv'.format(id), "w") as f:
-        w = csv.DictWriter(
-            f,
-            fieldnames=["id", "username", "completed", "task"],
-            quotechar='"',
-            quoting=csv.QUOTE_ALL
-        )
-        for task in completed:
-            w.writerow(task)
+    with open('{}.json'.format(id), "w") as f:
+        w = json.dump(obj, f)
