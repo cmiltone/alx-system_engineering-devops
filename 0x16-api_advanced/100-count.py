@@ -3,7 +3,7 @@
 import requests
 
 
-def count_words(subreddit, word_list, instances={}, after="", count=0):
+def count_words(subreddit, word_list, _dict={}, after="", count=0):
     """function prints counts of given words found
     in hot posts of a given subreddit.
     """
@@ -34,16 +34,16 @@ def count_words(subreddit, word_list, instances={}, after="", count=0):
         for word in word_list:
             if word.lower() in title:
                 times = len([t for t in title if t == word.lower()])
-                if instances.get(word) is None:
-                    instances[word] = times
+                if _dict.get(word) is None:
+                    _dict[word] = times
                 else:
-                    instances[word] += times
+                    _dict[word] += times
 
     if after is None:
-        if len(instances) == 0:
+        if len(_dict) == 0:
             print("")
             return
-        instances = sorted(instances.items(), key=lambda kv: (-kv[1], kv[0]))
-        [print("{}: {}".format(k, v)) for k, v in instances]
+        _dict = sorted(_dict.items(), key=lambda kv: (-kv[1], kv[0]))
+        [print("{}: {}".format(k, v)) for k, v in _dict]
     else:
-        count_words(subreddit, word_list, instances, after, count)
+        count_words(subreddit, word_list, _dict, after, count)
